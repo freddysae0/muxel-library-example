@@ -10,6 +10,11 @@ name = "Say hello"
 text = "echo hello from the team library"
 submit = true
 
+[[snippets]]
+name = "Ship it"
+text = "Looks good to me, ship it."
+submit = false
+
 [[runners]]
 name = "Team review"
 preset = "Claude"
@@ -19,12 +24,12 @@ prompt = "Review the current changes and list any problems.\n\n{{input}}"
 [[runners]]
 name = "Shell hello"
 preset = "PowerShell"
-prompt = "echo hello-from-a-shared-runner"
+prompt = "echo hello-from-a-shared-runner-v2"
 
 [[loops]]
 name = "Hourly status"
 preset = "PowerShell"
-prompt = "git status"
+prompt = "git status --short"
 schedule = { kind = "every_hours", hours = 1 }
 post_run = "leave"
 
