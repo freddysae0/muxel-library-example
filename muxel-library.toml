@@ -1,0 +1,36 @@
+# Example team library for muxel
+
+[[snippets]]
+name = "Plan first"
+text = "Before you start, outline your plan and wait for my confirmation."
+submit = false
+
+[[snippets]]
+name = "Say hello"
+text = "echo hello from the team library"
+submit = true
+
+[[runners]]
+name = "Team review"
+preset = "Claude"
+auto_mode_presses = 0
+prompt = "Review the current changes and list any problems.\n\n{{input}}"
+
+[[runners]]
+name = "Shell hello"
+preset = "PowerShell"
+prompt = "echo hello-from-a-shared-runner"
+
+[[loops]]
+name = "Hourly status"
+preset = "PowerShell"
+prompt = "git status"
+schedule = { kind = "every_hours", hours = 1 }
+post_run = "leave"
+
+[[loops]]
+name = "Nightly deps check"
+preset = "Claude"
+prompt = "Check for outdated dependencies and summarize."
+schedule = { kind = "daily_at", hour = 2, minute = 30 }
+post_run = "exit"
